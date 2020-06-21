@@ -1,8 +1,12 @@
 [package]
 name = "Galois"
 version = "0.1.0"
-authors = ["chandan"]
+authors = ["Kunal Chandan kchandan@uwaterloo.ca"]
+license = "MIT"
 edition = "2018"
+description = "Fast Numerical Methods library with minimal dependancies"
+repository = "https://github.com/kunalchandan/galois"
+readme = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
