@@ -14,7 +14,9 @@ struct GF2 {
 impl Add<GF2> for GF2 {
     type Output = GF2;
     fn add(self, _rhs: GF2) -> GF2 {
-        self.value ^ _rhs.value
+        GF2 {
+            value: self.value ^ _rhs.value
+        }
     }
 }
 impl AddAssign<GF2> for GF2 {
@@ -27,7 +29,9 @@ impl AddAssign<GF2> for GF2 {
 impl Sub<GF2> for GF2 {
     type Output = GF2;
     fn sub(self, _rhs: GF2) -> GF2 {
-        self.value ^ _rhs.value
+        GF2 {
+            value: self.value ^ _rhs.value
+        }
     }
 }
 impl SubAssign<GF2> for GF2 {
@@ -40,7 +44,9 @@ impl SubAssign<GF2> for GF2 {
 impl Mul<GF2> for GF2 {
     type Output = GF2;
     fn mul(self, _rhs: GF2) -> GF2 {
-        self.value & _rhs.value
+        GF2 {
+            value: self.value & _rhs.value
+        }
     }
 }
 impl MulAssign<GF2> for GF2 {
@@ -53,7 +59,9 @@ impl MulAssign<GF2> for GF2 {
 impl Div<GF2> for GF2 {
     type Output = GF2;
     fn div(self, _rhs: GF2) -> GF2 {
-        self.value & _rhs.value
+        GF2 {
+            value: self.value & _rhs.value
+        }
     }
 }
 impl DivAssign<GF2> for GF2 {
@@ -65,7 +73,9 @@ impl DivAssign<GF2> for GF2 {
 impl BitXor<GF2> for GF2 {
     type Output = GF2;
     fn bitxor(self, _rhs: GF2) -> GF2 {
-        self.value ^ _rhs.value
+        GF2 {
+            value: self.value ^ _rhs.value
+        }
     }
 }
 impl BitXorAssign<GF2> for GF2 {
@@ -78,7 +88,9 @@ impl BitXorAssign<GF2> for GF2 {
 impl BitAnd<GF2> for GF2 {
     type Output = GF2;
     fn bitand(self, _rhs: GF2) -> GF2 {
-        self.value & _rhs.value
+        GF2 {
+            value: self.value & _rhs.value
+        }
     }
 }
 impl BitAndAssign<GF2> for GF2 {
@@ -91,16 +103,18 @@ impl BitAndAssign<GF2> for GF2 {
 impl BitOr<GF2> for GF2 {
     type Output = GF2;
     fn bitor(self, _rhs: GF2) -> GF2 {
-        self.value & _rhs.value
+        GF2 {
+            value: self.value | _rhs.value
+        }
     }
 }
 impl BitOrAssign<GF2> for GF2 {
     fn bitor_assign(&mut self, rhs: GF2) {
-        self.value &= rhs.value
+        self.value |= rhs.value;
     }
 }
 
-impl Neg<GF2> for GF2 {
+impl Neg for GF2 {
     type Output = GF2;
     fn neg(self) -> GF2 {
         GF2 {
@@ -108,7 +122,7 @@ impl Neg<GF2> for GF2 {
         }
     }
 }
-impl Not<GF2> for GF2 {
+impl Not for GF2 {
     type Output = GF2;
     fn not(self) -> GF2 {
         GF2 {
