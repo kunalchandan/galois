@@ -6,9 +6,11 @@ use std::ops::{Add, AddAssign,
                BitAnd, BitAndAssign,
                BitXor, BitXorAssign,
                Not, Neg};
+use std::cmp::{PartialEq, PartialOrd, Ordering};
 
-struct GF2 {
-    value: bool
+#[derive(Debug)]
+pub struct GF2 {
+    pub value: bool
 }
 
 impl Add<GF2> for GF2 {
@@ -128,5 +130,19 @@ impl Not for GF2 {
         GF2 {
             value: !self.value
         }
+    }
+}
+
+impl PartialEq for GF2 {
+    fn eq(&self, other: &Self) -> bool { &self.value == &other.value }
+    fn ne(&self, other: &Self) -> bool { !self.eq(other) }
+}
+impl PartialEq<bool> for GF2 {
+    fn eq(&self, other: &bool) -> bool { &self.value == other }
+    fn ne(&self, other: &bool) -> bool { !self.eq(other) }
+}
+impl PartialOrd for GF2 {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        self.value.partial_cmp(&other.value)
     }
 }
