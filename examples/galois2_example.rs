@@ -1,4 +1,4 @@
-#[cfg(test)]
-fn test_GF2 {
+
+fn main() {
 
 }
